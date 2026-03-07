@@ -638,7 +638,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">${item.description}</p>
                         <div class="flex justify-between items-center">
-                            <button class="text-primary hover:text-red-700 font-bold flex items-center">
+                            <button onclick="addToOrder(${item.id})" class="text-primary hover:text-red-700 font-bold flex items-center">
                                 <i class="fas fa-plus mr-2"></i> Add to Order
                             </button>
                             <div class="flex space-x-2">
@@ -661,7 +661,7 @@
             filterCategory('all');
         });
 
-     // Simulate adding to cart functionality
+        // Simulate adding to cart functionality
         document.addEventListener('click', (e) => {
             if (e.target.closest('.fa-plus')) {
                 const cartCount = document.querySelector('.absolute');
@@ -681,3 +681,66 @@
             alert("Table booking feature would open a reservation form. For demo purposes, this alert is shown.");
             // In a real implementation, you would redirect to a booking page or open a modal
         }
+
+        // Open booking modal
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close booking modal
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Open payment modal
+        function openPaymentModal(total) {
+            document.getElementById('totalAmount').textContent = total.toFixed(2);
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close payment modal
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add to order function
+        function addToOrder(itemId) {
+            // Find the item in menuData
+            const item = menuData.find(item => item.id === itemId);
+            if (item) {
+                // Update cart count
+                const cartCount = document.querySelector('.absolute');
+                let count = parseInt(cartCount.textContent);
+                cartCount.textContent = count + 1;
+                
+                // Animation effect
+                const itemElement = event.target.closest('.fa-plus').parentElement.parentElement;
+                itemElement.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    itemElement.style.transform = 'scale(1)';
+                }, 300);
+                
+                // Show notification
+                alert(`${item.name} added to your order!`);
+            }
+        }
+
+        // Handle booking form submission
+        document.getElementById('bookingForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, this would submit to a server
+            alert('Table booked successfully! We will send a confirmation to your email.');
+            closeBookingModal();
+        });
+
+        // Handle payment form submission
+        document.getElementById('paymentForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real app, this would process payment
+            alert('Payment successful! Thank you for your order.');
+            closePaymentModal();
+        });
