@@ -1,5 +1,4 @@
-
-        // Extended menu data with 50 more dishes
+   // Extended menu data with 50 more dishes
         const menuData = [
             {
                 id: 1,
@@ -603,6 +602,10 @@
             }
         ];
 
+        // State management
+        let cart = [];
+        let cartCount = 0;
+
         // Function to show sections
         function showSection(sectionId) {
             // Hide all sections
@@ -638,7 +641,7 @@
                         </div>
                         <p class="text-gray-600 mb-4">${item.description}</p>
                         <div class="flex justify-between items-center">
-                            <button onclick="addToOrder(${item.id})" class="text-primary hover:text-red-700 font-bold flex items-center">
+                            <button onclick="addToCart(${item.id})" class="text-primary hover:text-red-700 font-bold flex items-center">
                                 <i class="fas fa-plus mr-2"></i> Add to Order
                             </button>
                             <div class="flex space-x-2">
@@ -659,21 +662,6 @@
             
             // Load menu items
             filterCategory('all');
-        });
-
-        // Simulate adding to cart functionality
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('.fa-plus')) {
-                const cartCount = document.querySelector('.absolute');
-                let count = parseInt(cartCount.textContent);
-                cartCount.textContent = count + 1;
-                
-                // Animation effect
-                e.target.closest('.fa-plus').parentElement.parentElement.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    e.target.closest('.fa-plus').parentElement.parentElement.style.transform = 'scale(1)';
-                }, 300);
-            }
         });
 
         // Book table function
@@ -707,15 +695,25 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Add to order function
-        function addToOrder(itemId) {
+        // Add to cart function
+        function addToCart(itemId) {
             // Find the item in menuData
             const item = menuData.find(item => item.id === itemId);
             if (item) {
+                // Check if item already exists in cart
+                const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        ...item,
+                        quantity: 1
+                    });
+                }
+                
                 // Update cart count
-                const cartCount = document.querySelector('.absolute');
-                let count = parseInt(cartCount.textContent);
-                cartCount.textContent = count + 1;
+                cartCount++;
+                document.getElementById('cart-count').textContent = cartCount;
                 
                 // Animation effect
                 const itemElement = event.target.closest('.fa-plus').parentElement.parentElement;
@@ -727,6 +725,115 @@
                 // Show notification
                 alert(`${item.name} added to your order!`);
             }
+        }
+
+        // Show cart function
+        function showCart() {
+            renderCart();
+            document.getElementById('cartSection').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Hide cart function
+        function hideCart() {
+            document.getElementById('cartSection').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Render cart items
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            const cartTotalElement = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '';
+                emptyCartMessage.classList.remove('hidden');
+                cartTotalElement.textContent = '$0.00';
+                return;
+            }
+            
+            emptyCartMessage.classList.add('hidden');
+            let total = 0;
+            
+            cartItemsContainer.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                return `
+                    <div class="flex items-center justify-between p-4 border-b">
+                        <div class="flex items-center">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded mr-4">
+                            <div>
+                                <h4 class="font-bold text-dark">${item.name}</h4>
+                                <p class="text-gray-600">$${item.price.toFixed(2)} × ${item.quantity}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="font-bold text-primary mr-4">$${itemTotal.toFixed(2)}</span>
+                            <div class="flex space-x-2">
+                                <button onclick="updateQuantity(${item.id}, 1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                                    <i class="fas fa-plus text-sm"></i>
+                                </button>
+                                <button onclick="updateQuantity(${item.id}, -1)" class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
+                                    <i class="fas fa-minus text-sm"></i>
+                                </button>
+                                <button onclick="removeFromCart(${item.id})" class="ml-2 text-red-500">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Update item quantity
+        function updateQuantity(itemId, change) {
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            if (itemIndex !== -1) {
+                if (change === 1) {
+                    cart[itemIndex].quantity += 1;
+                } else if (change === -1 && cart[itemIndex].quantity > 1) {
+                    cart[itemIndex].quantity -= 1;
+                } else if (change === -1 && cart[itemIndex].quantity === 1) {
+                    removeFromCart(itemId);
+                    return;
+                }
+                
+                // Update cart count
+                cartCount += change;
+                document.getElementById('cart-count').textContent = cartCount;
+                
+                renderCart();
+            }
+        }
+
+        // Remove from cart
+        function removeFromCart(itemId) {
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            if (itemIndex !== -1) {
+                // Update cart count
+                cartCount -= cart[itemIndex].quantity;
+                document.getElementById('cart-count').textContent = cartCount;
+                
+                // Remove item
+                cart.splice(itemIndex, 1);
+                renderCart();
+            }
+        }
+
+        // Proceed to payment
+        function proceedToPayment() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            openPaymentModal(total);
+            hideCart();
         }
 
         // Handle booking form submission
@@ -743,4 +850,8 @@
             // In a real app, this would process payment
             alert('Payment successful! Thank you for your order.');
             closePaymentModal();
+            cart = [];
+            cartCount = 0;
+            document.getElementById('cart-count').textContent = '0';
+            renderCart();
         });
