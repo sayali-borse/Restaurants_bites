@@ -1,5 +1,4 @@
-
-        // Extended menu data with 50 more dishes
+ // Extended menu data with 50 more dishes
         const menuData = [
             {
                 id: 1,
@@ -889,4 +888,3 @@
             document.getElementById('cart-count').textContent = '0';
             renderCart();
         });
-   
