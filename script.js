@@ -1,6 +1,5 @@
 
-
-        // Sample menu data
+        // Extended menu data with 50 more dishes
         const menuData = [
             {
                 id: 1,
@@ -65,6 +64,542 @@
                 description: "Seasonal ingredients with premium spirits and house-made syrups",
                 price: 12.99,
                 image: "https://placehold.co/300x200/secondary/white?text=Craft+Cocktail"
+            },
+            {
+                id: 9,
+                name: "Caprese Salad",
+                category: "appetizer",
+                description: "Fresh mozzarella, tomatoes, and basil with balsamic glaze",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Caprese+Salad"
+            },
+            {
+                id: 10,
+                name: "Shrimp Scampi",
+                category: "appetizer",
+                description: "Garlic butter shrimp served with toasted bread",
+                price: 15.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Shrimp+Scampi"
+            },
+            {
+                id: 11,
+                name: "Chicken Parmesan",
+                category: "main",
+                description: "Breaded chicken breast with marinara sauce and melted mozzarella",
+                price: 24.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chicken+Parmesan"
+            },
+            {
+                id: 12,
+                name: "Lamb Chops",
+                category: "main",
+                description: "Herb-crusted lamb chops with rosemary potatoes",
+                price: 35.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Lamb+Chops"
+            },
+            {
+                id: 13,
+                name: "Crème Brûlée",
+                category: "dessert",
+                description: "Vanilla custard with caramelized sugar topping",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Creme+Brulee"
+            },
+            {
+                id: 14,
+                name: "Panna Cotta",
+                category: "dessert",
+                description: "Silky vanilla custard with berry compote",
+                price: 7.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Panna+Cotta"
+            },
+            {
+                id: 15,
+                name: "Sparkling Wine",
+                category: "drink",
+                description: "Champagne or prosecco with fruit infusion",
+                price: 14.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Sparkling+Wine"
+            },
+            {
+                id: 16,
+                name: "Iced Tea",
+                category: "drink",
+                description: "Freshly brewed tea with lemon and mint",
+                price: 4.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Iced+Tea"
+            },
+            {
+                id: 17,
+                name: "Bruschetta",
+                category: "appetizer",
+                description: "Toasted bread topped with tomato, basil, and garlic",
+                price: 11.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Bruschetta"
+            },
+            {
+                id: 18,
+                name: "Mushroom Risotto",
+                category: "main",
+                description: "Creamy arborio rice with wild mushrooms and parmesan",
+                price: 22.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Mushroom+Risotto"
+            },
+            {
+                id: 19,
+                name: "Chocolate Soufflé",
+                category: "dessert",
+                description: "Fluffy chocolate soufflé with raspberry coulis",
+                price: 10.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chocolate+Souffle"
+            },
+            {
+                id: 20,
+                name: "Espresso Martini",
+                category: "drink",
+                description: "Vodka, coffee liqueur, and espresso with a twist",
+                price: 13.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Espresso+Martini"
+            },
+            {
+                id: 21,
+                name: "Caesar Salad",
+                category: "appetizer",
+                description: "Crisp romaine lettuce with parmesan and croutons",
+                price: 10.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Caesar+Salad"
+            },
+            {
+                id: 22,
+                name: "Seafood Pasta",
+                category: "main",
+                description: "Fettuccine with shrimp, scallops, and white wine sauce",
+                price: 26.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Seafood+Pasta"
+            },
+            {
+                id: 23,
+                name: "Apple Pie",
+                category: "dessert",
+                description: "Homemade apple pie with cinnamon and vanilla ice cream",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Apple+Pie"
+            },
+            {
+                id: 24,
+                name: "Mojito",
+                category: "drink",
+                description: "Refreshing rum cocktail with mint and lime",
+                price: 11.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Mojito"
+            },
+            {
+                id: 25,
+                name: "Stuffed Bell Peppers",
+                category: "appetizer",
+                description: "Bell peppers filled with quinoa and roasted vegetables",
+                price: 13.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Stuffed+Peppers"
+            },
+            {
+                id: 26,
+                name: "Vegetable Lasagna",
+                category: "main",
+                description: "Layered pasta with ricotta, spinach, and marinara sauce",
+                price: 21.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Vegetable+Lasagna"
+            },
+            {
+                id: 27,
+                name: "Cheesecake",
+                category: "dessert",
+                description: "New York style cheesecake with berry sauce",
+                price: 9.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Cheesecake"
+            },
+            {
+                id: 28,
+                name: "Cosmopolitan",
+                category: "drink",
+                description: "Vodka, cranberry juice, and triple sec with citrus twist",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Cosmopolitan"
+            },
+            {
+                id: 29,
+                name: "Garlic Bread",
+                category: "appetizer",
+                description: "Toasted bread with garlic butter and herbs",
+                price: 7.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Garlic+Bread"
+            },
+            {
+                id: 30,
+                name: "BBQ Ribs",
+                category: "main",
+                description: "Slow-cooked pork ribs with BBQ sauce and coleslaw",
+                price: 27.99,
+                image: "https://placehold.co/300x200/secondary/white?text=BBQ+Ribs"
+            },
+            {
+                id: 31,
+                name: "Banana Bread",
+                category: "dessert",
+                description: "Moist banana bread with walnuts and cinnamon",
+                price: 6.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Banana+Bread"
+            },
+            {
+                id: 32,
+                name: "Margarita",
+                category: "drink",
+                description: "Classic tequila cocktail with lime and triple sec",
+                price: 11.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Margarita"
+            },
+            {
+                id: 33,
+                name: "Calamari Fritti",
+                category: "appetizer",
+                description: "Crispy fried squid with marinara dipping sauce",
+                price: 14.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Calamari+Fritti"
+            },
+            {
+                id: 34,
+                name: "Chicken Alfredo",
+                category: "main",
+                description: "Fettuccine with grilled chicken and creamy Alfredo sauce",
+                price: 23.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chicken+Alfredo"
+            },
+            {
+                id: 35,
+                name: "Key Lime Pie",
+                category: "dessert",
+                description: "Tangy key lime pie with meringue topping",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Key+Lime+Pie"
+            },
+            {
+                id: 36,
+                name: "Mulled Cider",
+                category: "drink",
+                description: "Spiced apple cider with cinnamon and cloves",
+                price: 5.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Mulled+Cider"
+            },
+            {
+                id: 37,
+                name: "Spinach Artichoke Dip",
+                category: "appetizer",
+                description: "Creamy dip with spinach, artichokes, and melted cheese",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Spinach+Dip"
+            },
+            {
+                id: 38,
+                name: "Fish & Chips",
+                category: "main",
+                description: "Battered cod with fries and tartar sauce",
+                price: 25.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Fish+Chips"
+            },
+            {
+                id: 39,
+                name: "Chocolate Chip Cookies",
+                category: "dessert",
+                description: "Warm cookies with chocolate chips and vanilla ice cream",
+                price: 6.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chocolate+Cookies"
+            },
+            {
+                id: 40,
+                name: "Long Island Iced Tea",
+                category: "drink",
+                description: "Mixed spirits with cola and citrus",
+                price: 13.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Long+Island"
+            },
+            {
+                id: 41,
+                name: "Stuffed Mushrooms",
+                category: "appetizer",
+                description: "Large mushroom caps stuffed with herbed cream cheese",
+                price: 11.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Stuffed+Mushrooms"
+            },
+            {
+                id: 42,
+                name: "Vegetable Curry",
+                category: "main",
+                description: "Spiced vegetable curry with coconut milk and basmati rice",
+                price: 19.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Vegetable+Curry"
+            },
+            {
+                id: 43,
+                name: "Peach Cobbler",
+                category: "dessert",
+                description: "Baked peaches with cinnamon and vanilla ice cream",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Peach+Cobbler"
+            },
+            {
+                id: 44,
+                name: "Gin & Tonic",
+                category: "drink",
+                description: "Premium gin with tonic water and garnish",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Gin+Tonic"
+            },
+            {
+                id: 45,
+                name: "Deviled Eggs",
+                category: "appetizer",
+                description: "Hard-boiled eggs with mayonnaise and paprika",
+                price: 9.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Deviled+Eggs"
+            },
+            {
+                id: 46,
+                name: "Penne Arrabiata",
+                category: "main",
+                description: "Penne pasta with spicy tomato sauce and basil",
+                price: 18.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Penne+Arrabiata"
+            },
+            {
+                id: 47,
+                name: "Crème Caramel",
+                category: "dessert",
+                description: "Caramel custard with vanilla sauce",
+                price: 7.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Creame+Caramel"
+            },
+            {
+                id: 48,
+                name: "Orange Juice",
+                category: "drink",
+                description: "Freshly squeezed orange juice",
+                price: 4.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Orange+Juice"
+            },
+            {
+                id: 49,
+                name: "Nachos Grande",
+                category: "appetizer",
+                description: "Loaded nachos with cheese, jalapeños, and guacamole",
+                price: 13.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Nachos+Grande"
+            },
+            {
+                id: 50,
+                name: "Beef Lasagna",
+                category: "main",
+                description: "Classic lasagna with ground beef and ricotta cheese",
+                price: 24.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Beef+Lasagna"
+            },
+            {
+                id: 51,
+                name: "Strawberry Shortcake",
+                category: "dessert",
+                description: "Fresh strawberries with whipped cream and shortcake",
+                price: 9.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Strawberry+Shortcake"
+            },
+            {
+                id: 52,
+                name: "Whiskey Sour",
+                category: "drink",
+                description: "Whiskey with lemon juice and simple syrup",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Whiskey+Sour"
+            },
+            {
+                id: 53,
+                name: "Burrata Salad",
+                category: "appetizer",
+                description: "Fresh burrata with heirloom tomatoes and basil oil",
+                price: 16.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Burrata+Salad"
+            },
+            {
+                id: 54,
+                name: "Turkey Club",
+                category: "main",
+                description: "Roasted turkey with bacon, avocado, and mayo on toasted bread",
+                price: 22.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Turkey+Club"
+            },
+            {
+                id: 55,
+                name: "Chocolate Mousse",
+                category: "dessert",
+                description: "Light chocolate mousse with fresh berries",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chocolate+Mousse"
+            },
+            {
+                id: 56,
+                name: "Sangria",
+                category: "drink",
+                description: "Red wine with fruit and sparkling water",
+                price: 10.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Sangria"
+            },
+            {
+                id: 57,
+                name: "Hummus & Pita",
+                category: "appetizer",
+                description: "Traditional hummus with warm pita bread",
+                price: 10.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Hummus+Pita"
+            },
+            {
+                id: 58,
+                name: "Mussels French",
+                category: "main",
+                description: "Steamed mussels with white wine and herbs",
+                price: 25.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Mussels+French"
+            },
+            {
+                id: 59,
+                name: "Salted Caramel Tart",
+                category: "dessert",
+                description: "Buttery tart with salted caramel filling",
+                price: 9.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Salted+Caramel"
+            },
+            {
+                id: 60,
+                name: "Ginger Ale",
+                category: "drink",
+                description: "Spicy ginger ale with citrus twist",
+                price: 4.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Ginger+Ale"
+            },
+            {
+                id: 61,
+                name: "Prawn Cocktail",
+                category: "appetizer",
+                description: "Fresh prawns with cocktail sauce",
+                price: 15.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Prawn+Cocktail"
+            },
+            {
+                id: 62,
+                name: "Eggplant Parmigiana",
+                category: "main",
+                description: "Breaded eggplant with marinara and melted mozzarella",
+                price: 21.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Eggplant+Parm"
+            },
+            {
+                id: 63,
+                name: "Lemon Tart",
+                category: "dessert",
+                description: "Tangy lemon curd in a buttery crust",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Lemon+Tart"
+            },
+            {
+                id: 64,
+                name: "Vodka Soda",
+                category: "drink",
+                description: "Premium vodka with soda and lemon",
+                price: 11.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Vodka+Soda"
+            },
+            {
+                id: 65,
+                name: "Chicken Wings",
+                category: "appetizer",
+                description: "Spicy buffalo wings with ranch dip",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Chicken+Wings"
+            },
+            {
+                id: 66,
+                name: "Vegetable Stir Fry",
+                category: "main",
+                description: "Seasonal vegetables in a savory sauce with rice",
+                price: 18.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Stir+Fry"
+            },
+            {
+                id: 67,
+                name: "Blueberry Cheesecake",
+                category: "dessert",
+                description: "Creamy cheesecake with blueberry compote",
+                price: 9.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Blueberry+Cheesecake"
+            },
+            {
+                id: 68,
+                name: "Mai Tai",
+                category: "drink",
+                description: "Rum-based cocktail with orange liqueur and mint",
+                price: 13.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Mai+Tai"
+            },
+            {
+                id: 69,
+                name: "Tomato Soup",
+                category: "appetizer",
+                description: "Hearty tomato soup with grilled cheese crouton",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Tomato+Soup"
+            },
+            {
+                id: 70,
+                name: "Pork Chop",
+                category: "main",
+                description: "Grilled pork chop with apple sauce and roasted potatoes",
+                price: 26.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Pork+Chop"
+            },
+            {
+                id: 71,
+                name: "Apple Crisp",
+                category: "dessert",
+                description: "Baked apples with cinnamon and oat crumble",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Apple+Crisp"
+            },
+            {
+                id: 72,
+                name: "Bloody Mary",
+                category: "drink",
+                description: "Vodka with tomato juice and spices",
+                price: 12.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Bloody+Mary"
+            },
+            {
+                id: 73,
+                name: "Antipasto Platter",
+                category: "appetizer",
+                description: "Assorted cured meats, cheeses, and olives",
+                price: 17.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Antipasto"
+            },
+            {
+                id: 74,
+                name: "Quinoa Bowl",
+                category: "main",
+                description: "Quinoa with roasted vegetables and tahini dressing",
+                price: 19.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Quinoa+Bowl"
+            },
+            {
+                id: 75,
+                name: "Pumpkin Pie",
+                category: "dessert",
+                description: "Classic pumpkin pie with whipped cream",
+                price: 8.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Pumpkin+Pie"
             }
         ];
 
