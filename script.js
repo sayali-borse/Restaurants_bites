@@ -661,7 +661,7 @@
             filterCategory('all');
         });
 
-        // Simulate adding to cart functionality
+     // Simulate adding to cart functionality
         document.addEventListener('click', (e) => {
             if (e.target.closest('.fa-plus')) {
                 const cartCount = document.querySelector('.absolute');
@@ -675,4 +675,9 @@
                 }, 300);
             }
         });
-  
+
+        // Book table function
+        function bookTable() {
+            alert("Table booking feature would open a reservation form. For demo purposes, this alert is shown.");
+            // In a real implementation, you would redirect to a booking page or open a modal
+        }
