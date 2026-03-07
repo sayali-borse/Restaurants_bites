@@ -36,9 +36,9 @@
                 <button onclick="showSection('contact')" class="font-medium hover:text-primary transition-colors">Contact</button>
             </nav>
             <div class="flex items-center space-x-4">
-                <button class="relative p-2">
+                <button onclick="showCart()" class="relative p-2">
                     <i class="fas fa-shopping-cart text-xl"></i>
-                    <span class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
                 </button>
                 <button class="md:hidden text-dark">
                     <i class="fas fa-bars text-xl"></i>
@@ -272,7 +272,38 @@
         </div>
     </div>
 
-    <!-- Card Payment Modal -->
+    <!-- Cart Section -->
+    <div id="cartSection" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 scale-95 animate-in fade-in zoom-in max-h-[90vh] overflow-hidden flex flex-col">
+            <div class="p-6 border-b">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-2xl font-bold text-dark">Your Order</h3>
+                    <button onclick="hideCart()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be dynamically loaded here -->
+                </div>
+                <div id="empty-cart-message" class="text-center py-8 text-gray-500">
+                    Your cart is empty
+                </div>
+            </div>
+            <div class="p-6 border-t">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xl font-bold text-dark">Total:</span>
+                    <span id="cart-total" class="text-xl font-bold text-primary">$0.00</span>
+                </div>
+                <button onclick="proceedToPayment()" class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-red-700 transition-colors">
+                    Proceed to Payment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
     <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 scale-95 animate-in fade-in zoom-in">
             <div class="p-6">
@@ -366,7 +397,7 @@
     </footer>
 
     <script src="script.js">
-      
+     
     </script>
 </body>
 </html>
