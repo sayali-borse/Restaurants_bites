@@ -1,4 +1,4 @@
-   // Extended menu data with 50 more dishes
+ // Extended menu data with 50 more dishes
         const menuData = [
             {
                 id: 1,
@@ -646,7 +646,7 @@
                             </button>
                             <div class="flex space-x-2">
                                 <button class="p-2 text-gray-400 hover:text-primary"><i class="fas fa-heart"></i></button>
-                                <button class="p-2 text-gray-400 hover:text-primary"><i class="fas fa-share-alt"></i></button>
+                                <button onclick="showDetails(${item.id})" class="p-2 text-gray-400 hover:text-primary"><i class="fas fa-info-circle"></i></button>
                             </div>
                         </div>
                     </div>
@@ -724,6 +724,39 @@
                 
                 // Show notification
                 alert(`${item.name} added to your order!`);
+            }
+        }
+
+        // Show details function
+        function showDetails(itemId) {
+            // Find the item in menuData
+            const item = menuData.find(item => item.id === itemId);
+            if (item) {
+                // Create modal
+                const modal = document.createElement('div');
+                modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+                modal.innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform transition-all duration-300 scale-95 animate-in fade-in zoom-in">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl font-bold text-dark">${item.name}</h3>
+                                <button onclick="this.closest('div').remove()" class="text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-times text-xl"></i>
+                                </button>
+                            </div>
+                            <img src="${item.image}" alt="${item.name}" class="w-full h-64 object-cover rounded-lg mb-4">
+                            <p class="text-gray-600 mb-4">${item.description}</p>
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="text-xl font-bold text-primary">$${item.price.toFixed(2)}</span>
+                                <button onclick="addToCart(${item.id}); this.closest('div').remove();" class="bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">
+                                    Add to Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden';
             }
         }
 
