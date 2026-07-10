@@ -600,6 +600,14 @@
                 price: 8.99,
                 image: "https://placehold.co/300x200/secondary/white?text=Pumpkin+Pie"
             }
+          {
+                id: 76,
+                name: "sugger pie",
+                category: "dessert",
+                description: "suger pie with whipped cream",
+                price: 10.99,
+                image: "https://placehold.co/300x200/secondary/white?text=Pumpkin+Pie"
+            }
         ];
 
         // State management
